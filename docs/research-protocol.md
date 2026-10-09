@@ -31,7 +31,11 @@ frozen in `data/`:
 A block is accepted only after `zeta_zeros_lab.validation` confirms: strictly increasing
 heights; consecutive indices; `|n - N_smooth(gamma_n)| <= 2.5` for every zero (a missed or
 duplicated zero shifts this by a whole integer for all later zeros); and, for the low block,
-the first five zeros match the published values to 1e-9.
+the first five zeros match the published values to 1e-9. As a rigorous completeness test, Hardy's
+Z function (real, changing sign at every simple critical-line zero) is evaluated at the midpoint of
+every gap; the signs must strictly alternate, which a single missed or duplicated zero always
+breaks (`scripts/verify_zeros.py`). This check was added to the protocol before the registry was
+generated.
 
 ## Unfolding
 
