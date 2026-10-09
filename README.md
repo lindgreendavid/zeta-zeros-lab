@@ -35,6 +35,8 @@ limitations: [`docs/research-report.md`](docs/research-report.md).
 | [`src/zeta_zeros_lab/`](src/zeta_zeros_lab/) | Unfolding, exact GUE law (Fredholm determinant), statistics, simulated null, validation. |
 | [`scripts/`](scripts/) | `compute_zeros.py`, `verify_zeros.py` (Hardy-Z completeness), `generate_registry.py`, `compare_registry.py`. |
 | [`reports/v0.1-zeta-registry.json`](reports/v0.1-zeta-registry.json) | The frozen results, including the hypothesis verdicts. |
+| [`paper/`](paper/) | Preprint (LaTeX source, PDF, BibTeX citation, verification status). |
+| [`history.md`](history.md) | Version history; corrections ship as new versions. |
 | [`site/`](site/) | Interactive Next.js (vinext) laboratory for Cloudflare Workers. |
 
 ## Reproduce

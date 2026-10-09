@@ -1,0 +1,114 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black,citecolor=blue!50!black}
+
+\title{Finite-Height Rigidity of the Riemann Zeta Zeros:\\
+A Preregistered Numerical Test Against Random-Matrix Statistics}
+\author{David Lindgreen}
+\date{October 9, 2026 \\[2pt] \small Version 0.1.0 \quad Preprint, not peer reviewed}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We test whether two blocks of 2{,}000 consecutive nontrivial zeros of the Riemann zeta function, the
+lowest and those near the 100{,}000th, follow the statistics of the Gaussian Unitary Ensemble (GUE).
+Hypotheses and thresholds were fixed in a protocol committed before any result was generated. The zeros are
+5 to 12 times closer to GUE than to independent random points in nearest-neighbour spacing and pair
+correlation, with strong level repulsion. However, the spacing variance is $0.148$ (low block) and
+$0.162$ (high block), below the $95\%$ sampling band $[0.169, 0.195]$ of 150 simulated GUE samples of the same
+size and below the exact GUE value $0.18000$: the zeros are measurably \emph{more rigid} than finite-size GUE,
+and the discrepancy shrinks with height. This direction is consistent with published finite-height corrections
+to the Montgomery--Odlyzko law; that model is not tested here. The study is numerical and makes no claim about the
+Riemann Hypothesis.
+\end{abstract}
+
+\section{Question and context}
+Montgomery~\cite{montgomery1973} showed, assuming the Riemann Hypothesis, that the pair correlation of
+zeta zeros agrees with the GUE form $R_2(r)=1-(\sin\pi r/\pi r)^2$ for test functions with restricted Fourier
+support, and Odlyzko~\cite{odlyzko1987} found close numerical agreement at large height. The agreement is an
+asymptotic statement. We ask a bounded finite question: for two disjoint blocks of 2{,}000 zeros, how far are
+the empirical nearest-neighbour spacing law and pair correlation from the GUE predictions, compared with
+(a) a Poisson control, (b) the sampling scatter of genuine GUE data of the same size, and (c) each other.
+
+\section{Data and unfolding}
+Heights $\gamma_n$ of the zeros $n=1,\dots,2000$ (heights $14.13$ to $2515.29$) and $n=100000,\dots,101999$
+(heights $74920.83$ to $76257.69$) were computed with \texttt{mpmath} and frozen.
+Completeness was verified by Hardy's function $Z(t)$, which changes sign at each simple critical-line zero: the
+sign of $Z$ at the midpoint of every gap strictly alternates on all 1{,}999 gaps of both blocks, which a single
+missed or duplicated zero always breaks. Zeros are unfolded by $x_n=\theta(\gamma_n)/\pi+1$ with $\theta$ the
+Riemann--Siegel theta function~\cite{edwards1974}, so the spacings $s_n=x_{n+1}-x_n$ have mean $1$.
+
+\section{Reference laws and null}
+The GUE nearest-neighbour spacing law is computed exactly from the sine-kernel Fredholm determinant
+$E(s)=\det(I-K_s)$ by Gauss--Legendre quadrature~\cite{bornemann2010}, with $F(s)=1+E'(s)$; its mean is $1.0000000$
+and variance $0.17999$. The Poisson control has $F(s)=1-e^{-s}$ and $R_2\equiv1$. Because one zeta block is a single
+realization, every statistic is also computed on 150 simulated GUE samples (seed $20260920$; central,
+semicircle-unfolded eigenvalues of independent $800\times800$ matrices pooled to 1{,}999 spacings), giving a calibrated
+sampling band. Kolmogorov--Smirnov (KS) values are used only as distances, never $p$-values, since zeta spacings are
+not independent.
+
+\section{Results}
+\begin{table}[h]
+\centering
+\begin{tabular}{lrrrr}
+\toprule
+Statistic & Low block & High block & Exact GUE & GUE band (95\%)\\
+\midrule
+Spacing KS distance to GUE & 0.0426 & 0.0255 & --- & $\le 0.0243$\\
+Pair-correlation RMS to GUE & 0.0681 & 0.0606 & --- & $\le 0.0703$\\
+Spacing variance & 0.1479 & 0.1618 & 0.1800 & $0.1686$--$0.1946$\\
+Share of spacings $<0.25$ & 0.0080 & 0.0110 & 0.0163 & $0.0115$--$0.0225$\\
+\bottomrule
+\end{tabular}
+\caption{Measured statistics against exact GUE and the simulated GUE sampling band. Poisson distances are
+$0.3161$ and $0.3052$ (KS) and $0.3608$ and $0.3489$ (pair-correlation RMS) for the low and high blocks.}
+\end{table}
+
+\paragraph{Preregistered hypotheses.}
+\textbf{H1} (GUE closer than Poisson on both distances in both blocks): confirmed.
+\textbf{H2} (fewer than $7.37\%$ of spacings below $0.25$): confirmed ($0.80\%$, $1.10\%$).
+\textbf{H3} (each distance inside the GUE sampling band): \emph{not confirmed}; the pair-correlation RMS passes in
+both blocks, while the spacing KS distance exceeds the band (clearly in the low block, marginally in the high block)
+and the spacing variance lies below the band in both.
+\textbf{H4} (agreement improves with height on both distances): confirmed.
+
+\section{Interpretation and limits}
+The excess rigidity and its decrease with height are the direction expected if, at finite height, the zeros behave
+like a unitary ensemble of finite effective dimension growing logarithmically with height, as developed by
+Bogomolny, Bohigas, Leboeuf and Monastra~\cite{bogomolny2006}. We did not fit or test that model. Further limits:
+two blocks only; spacing and pair correlation only; smooth-density unfolding only; the simulated band carries its own
+sampling error of a few percent, so the high block's marginal KS exceedance ($0.0255$ against $0.0243$) should
+be read cautiously; and each block is one realization, so the height trend establishes direction, not magnitude.
+No claim is made about the Riemann Hypothesis.
+
+\section{Proposed follow-up (not a result)}
+Preregister a v0.2 that replaces the infinite-$N$ GUE reference by a circular unitary ensemble of effective dimension
+set from the published formula without fitting, and test whether both blocks then fall inside that model's sampling
+band.
+
+\section*{Reproducibility and AI assistance}
+Code, frozen zeros, protocol, registry and tests:\\
+\url{https://github.com/lindgreendavid/zeta-zeros-lab}\\
+Interactive laboratory:\\
+\url{https://zeta-zeros-lab-interactive.lindgreendavid.workers.dev}\\
+The protocol commit precedes the
+registry commit in the repository history. The analysis code, tests and drafts of this text were produced with
+substantial assistance from an AI system (Claude, Anthropic); the author is responsible for the content.
+
+\begin{thebibliography}{9}
+\bibitem{montgomery1973} H.~L. Montgomery, The pair correlation of zeros of the zeta function,
+\emph{Proc. Sympos. Pure Math.} \textbf{24} (1973), 181--193.
+\bibitem{odlyzko1987} A.~M. Odlyzko, On the distribution of spacings between zeros of the zeta function,
+\emph{Math. Comp.} \textbf{48} (1987), 273--308.
+\bibitem{bornemann2010} F.~Bornemann, On the numerical evaluation of distributions in random matrix theory: a review,
+\emph{Markov Process. Related Fields} \textbf{16} (2010), 803--866.
+\bibitem{bogomolny2006} E.~B. Bogomolny, O.~Bohigas, P.~Leboeuf, A.~G. Monastra, On the spacing distribution of the
+Riemann zeros: corrections to the asymptotic result, \emph{J. Phys. A} \textbf{39} (2006), 10743--10754.
+\bibitem{edwards1974} H.~M. Edwards, \emph{Riemann's Zeta Function}, Academic Press, 1974.
+\end{thebibliography}
+\end{document}

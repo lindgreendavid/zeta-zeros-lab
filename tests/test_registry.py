@@ -83,3 +83,21 @@ def test_report_and_readme_numbers_match_the_registry():
             assert f"{s[key]:.4f}" in text, key
     band = r["simulated_gue_null"]["variance"]
     assert f"{band['q025']:.4f}" in text and f"{band['q975']:.4f}" in text
+
+
+def test_paper_numbers_match_the_registry():
+    tex = (Path(__file__).parent.parent / "paper" / "paper.tex").read_text()
+    r = frozen()
+    for block in r["blocks"].values():
+        s = block["stats"]
+        for key in (
+            "ks_gue",
+            "r2_rms_gue",
+            "variance",
+            "small_fraction",
+            "ks_poisson",
+            "r2_rms_poisson",
+        ):
+            assert f"{s[key]:.4f}" in tex, key
+    band = r["simulated_gue_null"]["variance"]
+    assert f"{band['q025']:.3f}" in tex and f"{band['q975']:.3f}" in tex
