@@ -26,7 +26,7 @@ Heights `gamma_n` are computed independently with `mpmath.zetazero` (18 signific
 frozen in `data/`:
 
 - **low**: zeros n = 1 … 2000 (`data/zeros-low.csv`, heights ≈ 14.13 … 2515)
-- **high**: zeros n = 100000 … 101999 (`data/zeros-high.csv`, heights ≈ 74920.83 … ≈ 75,000s)
+- **high**: zeros n = 100000 … 101999 (`data/zeros-high.csv`, heights ≈ 74920.83 … 76257.69)
 
 A block is accepted only after `zeta_zeros_lab.validation` confirms: strictly increasing
 heights; consecutive indices; `|n - N_smooth(gamma_n)| <= 2.5` for every zero (a missed or
