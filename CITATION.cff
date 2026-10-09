@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software or its results, please cite it as below."
+title: "Zeta Zeros Lab"
+type: software
+version: 0.1.0
+date-released: 2026-10-09
+authors:
+  - family-names: Lindgreen
+    given-names: David
+repository-code: "https://github.com/lindgreendavid/zeta-zeros-lab"
+license: MIT
+keywords:
+  - Riemann zeta function
+  - random matrix theory
+  - GUE
+  - Montgomery-Odlyzko law
+  - pair correlation
+  - reproducible research
