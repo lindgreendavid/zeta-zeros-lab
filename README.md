@@ -11,6 +11,8 @@ by chance.
 100,000th), how close are the nearest-neighbour spacings and the pair correlation to the GUE
 prediction, compared with Poisson, with the sampling scatter of real GUE data, and with each other?
 
+**[Open the live interactive laboratory](https://zeta-zeros-lab-interactive.lindgreendavid.workers.dev)**
+
 This is **not** a claim about the Riemann Hypothesis and not a proof of anything. It measures
 numerical agreement. The protocol ([`docs/research-protocol.md`](docs/research-protocol.md)) was
 committed before the registry was generated.
