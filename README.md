@@ -1,6 +1,6 @@
 # Zeta Zeros Lab
 
-**Part of the [Lab Notes Research Portfolio](https://blog-interactive.lindgreendavid.workers.dev/)** · Number theory × random matrices · Question → measurement → finding → boundary
+**Part of the [Lab Notes Research Portfolio](https://notes.lindgreendavid.com/)** · Number theory × random matrices · Question → measurement → finding → boundary
 
 A reproducible test of whether the nontrivial zeros of the Riemann zeta function follow
 random-matrix (GUE) statistics, measured on 4,000 real zeros against the exact GUE law, a
